@@ -1,12 +1,13 @@
 let verifyEquals = require('./verify-equals.js'); // this line imports the verifyEquals function from the verify-equals.js file
 
 // we need 5 test cases. I provided 1 input
-let inputs = ['max'];
+let inputs = ['max','','colleen','charlotte','issyboo'];
 
-let outputs = ['m'];
+let outputs = ['m',undefined,'c','c','i'];
 
 // Make this function return the first character of the string that is passed to it. If the string does not have a first character, return undefined
 function f(str) {
+  if (str.charAt(0)==='') return undefined;
   return str.charAt(0);
 }
 

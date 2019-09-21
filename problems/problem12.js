@@ -1,9 +1,9 @@
 let verifyEquals = require('./verify-equals.js');
 
 // we need 5 test cases.
-let inputs = [[[0, 1, 2, 3], [1, 3, 4, 5]], [[1, 2, 3], [1, 2, 3]], [2, 3]];
+let inputs = [[[0, 1, 2, 3, 4, 9], [1, 3, 4, 5]], [[1, 2, 3], [1, 2, 3]], [2, 3], [[0, 1, 2, 3], [3, 4, 5, 6]], [[2, 4, 6, 8], [1, 3, 5, 7]]];
 
-let outputs = [[0, 2, 4, 5], [], undefined];
+let outputs = [[0, 2, 9, 5], [], [], [0, 1, 2, 4, 5, 6], [2, 4, 6, 8, 1, 3, 5, 7]];
 
 /*
 Make this function return the elements that are unique to array1 and array2.
@@ -22,7 +22,25 @@ HINTS:
     - Once to get the unique elements in the first array
     - A second time to get the unique elements in the second array
 */
-function f(input) {}
+
+function getUniqueElements (arr1, arr2) {
+  let uniqueElements = [];
+  
+  for (i = 0; i < arr1.length; i++) {
+    let isUnique = true;
+    for (j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) isUnique = false;
+    };
+    if (isUnique) uniqueElements.push(arr1[i]);
+  };
+  return uniqueElements;
+};
+
+function f(input) {
+  let lhs = input[0];
+  let rhs = input[1];
+  return getUniqueElements(lhs, rhs).concat(getUniqueElements(rhs, lhs));
+};
 
 //This function runs a test. You do not need to change any code under here
 function runTest(i) {
