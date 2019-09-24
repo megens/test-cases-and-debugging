@@ -26,7 +26,7 @@ function f(arr) {
   
   let longstring = '';
   for(i=0;i<arr[1];i++){
-    longstring = longstring + arr[0]
+    longstring = longstring + arr[0];
   }
   return longstring;
 }
