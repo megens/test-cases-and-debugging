@@ -29,16 +29,16 @@ Lorem ipsumos dolor sit amet consectetur
 even though there is a space before the a in adipisicing
 */
 function f(str) {
-  const charArr = str.split('');
+  const stringArray = str.split('');  // turns input into array of single characters (no longer a string)!
   let res = '';
-  for (let i = 0; i < charArr.length; i++) {
+  for (let i = 0; i < stringArray.length; i++) {
     if (i % 40 === 0 && i !== 0) {
       res += '\n';
-      if (charArr[i] !== ' ') {
-        res += charArr[i];
+      if (stringArray[i] !== ' ') {
+        res += stringArray[i];
       }
     } else {
-      res += charArr[i];
+      res += stringArray[i];
     }
   }
   return res;
